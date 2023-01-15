@@ -12,8 +12,10 @@
 /build
 
 #backend folders: 
-backend/env
+backend/venv
 backend/__pycache__
+backend/.env
+backend/.flaskenv
 
 # misc
 .DS_Store
