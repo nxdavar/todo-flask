@@ -22,7 +22,7 @@ function App() {
   function getData() {
     axios({
       method: "GET",
-      url: "/profile",
+      url: "/todos",
     })
       .then((response) => {
         const res = response.data
