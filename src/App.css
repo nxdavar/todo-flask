@@ -85,3 +85,19 @@
   margin-left: 2%;
   margin-top: 2.5%;
 }
+
+.addTaskBtn {
+  background-color: white !important;
+  margin-left: 40vw !important;
+  margin-bottom: 1% !important;
+}
+
+.modal--titleRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.modal--closeIcon {
+  margin-top: 2.5%;
+}
