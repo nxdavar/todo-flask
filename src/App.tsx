@@ -2,24 +2,30 @@
 // external imports:
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Button } from "@mui/material";
 
 
 // internal imports:
 import './App.css';
+import { task } from "./types";
+import Todos from "./Todos";
 
 
-interface task {
-  taskName: string,
-  taskDeadline: Date
-}
 
 
 function App() {
 
   const [tasks, setTasks] = useState<task[] | undefined>([]);
 
+  const [runCount, setRunCount] = useState<number>(0);
+
+
+  /**
+   * Used to retrieve tasks from the backend
+   */
   function getData() {
+    console.log('this is the value of tasks and run count');
+    console.log(tasks);
+    console.log(runCount);
     axios({
       method: "GET",
       url: "/todos",
@@ -30,10 +36,7 @@ function App() {
         console.log(res);
         setTasks((prev) => {
           if (prev) {
-            return [...prev, {
-              taskName: res.name,
-              taskDeadline: res.about,
-            }]
+            return [...prev, ...res]
           }
         })
       }).catch((error) => {
@@ -45,15 +48,23 @@ function App() {
       })
   }
 
+
+  useEffect(() => {
+    console.log('this is the value of runCount');
+    console.log(runCount);
+    if (runCount === 0) {
+      setRunCount(1);
+      getData();
+    }
+  }, [runCount])
+
+
   return (
     <div className="App">
       <header className="App-header">
         <div className="App-header--cont">
-          <h3>Flask Todo Application</h3>
-          <Button style={{ backgroundColor: 'yellow' }} onClick={() => getData()}>Hello</Button>
-          {tasks && tasks.map((taskItem, index) => (
-            <div>{`${taskItem.taskName} ${taskItem.taskDeadline}`}</div>
-          ))}
+          <h3 className="App--title">Your Todos</h3>
+          <Todos tasks={tasks} />
         </div>
       </header>
     </div>

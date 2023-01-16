@@ -9,18 +9,18 @@ db = SQLAlchemy(api)
 
 class Todo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    task = db.Column(db.Text)
+    taskName = db.Column(db.Text)
     deadline = db.Column(db.DateTime)
 
 
 def __str__(self):
-    return f'{self.id} {self.task} {self.deadline}'
+    return f'{self.id} {self.taskName} {self.deadline}'
 
 
 def todo_serializer(todo):
     return {
         'id': todo.id,
-        'task': todo.task,
+        'taskName': todo.taskName,
         'deadline': todo.deadline,
     }
 
