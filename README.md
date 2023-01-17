@@ -1,46 +1,32 @@
-# Getting Started with Create React App
+# Running The Todo Application: 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+This application was built using ReactJS + TypeScript for the frontend, Flask a python based back-end library for the backend, and the SQLAlchemy to store a local version of a database to the application.
 
-In the project directory, you can run:
+This application will allow you to do the following: 
+1. Add tasks to your todo list 
+2. Delete tasks from your todo list upon the click of a button
+3. Reset all of your todos so you can start a fresh todo list
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+In order to run and use this application you need to take the following steps: 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+# Setting up the Frontend
+1. Cd into the project folder's root
+2. In the root of the folder run the command npm install
+3. Once all necessary packages have been installed, your application will be up and running at http://localhost:3000 (In the terminal you can command + click this link and it will open it up in your browswer if it does not do so automatically)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Setting up the Backend
+1. Open another terminal window
+2. Cd into the project folder's root
+3. Cd into the backend folder
+4. Create a virtual environment by typing in "python -m <name of your virtual env>"
+5. Activate your virtual environment by typing in source "<name of your virtual env>/bin/activate" (Use ls to check if there is a folder called your virtual env's name after creating it in Step 4)
+6. Install necessary requirements by typing in pip install -r requirements.txt
+7. Start the backend server by typing in npm run start-backend (this not the application you will be interacting with, the application you will be interacting with is the frontend application located at http://localhost:3000)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+You might have to restart the frontend in order for the app to work as expected. Now the application should work as intended. If you are curious and want to view updates to the backend, in another window navigate to http://localhost:5000/todos
