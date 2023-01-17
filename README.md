@@ -14,7 +14,7 @@ In order to run and use this application you need to take the following steps (p
 
 
 #General Seteup
-1. Clone this repository
+1. Clone this repository by typing "git clone https://github.com/nxdavar/todo-flask.git" in your terminal
 
 
 # Setting up the Frontend
