@@ -88,8 +88,8 @@
 
 .addTaskBtn {
   background-color: white !important;
-  margin-left: 40vw !important;
   margin-bottom: 1% !important;
+  margin-right: 5px !important;
 }
 
 .modal--titleRow {
@@ -117,4 +117,21 @@
 .submitBtn {
   background-color: #282c34 !important;
   color: white !important;
+}
+
+.todos-container-btnRow {
+  display: inline-block;
+  margin-left: 40vw;
+  margin-bottom: 3% !important;
+}
+
+.resetBtn {
+  background-color: red !important;
+  color: white !important;
+  margin-left: 5px !important;
+}
+
+.noTasksTxt {
+  color: white;
+  font-size: 25px;
 }

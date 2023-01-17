@@ -13,7 +13,7 @@ const TodoTile: React.FC<TodoTileProps> = (props: TodoTileProps) => {
 
     /**
   * Sends POST request to backend
-  * to put task in database
+  * to delete task from database
   */
     function deleteTodo(newTaskName: string | undefined, newTaskDeadline: Date | undefined) {
         axios.post('/deleteTodo', {

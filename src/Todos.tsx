@@ -73,13 +73,36 @@ const Todos: React.FC<TodosProps> = (props: TodosProps) => {
             });
     }
 
+
+    /**
+  * Sends POST request to backend
+  * to delete all todos 
+  */
+    function resetTodos() {
+        axios.post('/resetTodos', {
+        })
+            .then(function (response) {
+                console.log(response);
+                props.getData();
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+
     return (
         <>
             <div className="todos-container">
-                <Button onClick={handleOpen} className="addTaskBtn">
-                    Add a Task
-                    <AddIcon />
-                </Button>
+                <div className="todos-container-btnRow">
+                    <Button onClick={handleOpen} className="addTaskBtn">
+                        Add a Todo
+                        <AddIcon />
+                    </Button>
+                    <Button onClick={resetTodos} className="resetBtn">
+                        Reset Todos
+                    </Button>
+                </div>
+
                 <Modal
                     aria-labelledby="transition-modal-title"
                     aria-describedby="transition-modal-description"
@@ -114,9 +137,14 @@ const Todos: React.FC<TodosProps> = (props: TodosProps) => {
                         </Box>
                     </Fade>
                 </Modal>
-                {props.tasks && props.tasks.map((taskItem, index) => (
-                    <TodoTile taskName={taskItem.taskName} deadline={taskItem.deadline} getData={props.getData}></TodoTile>
-                ))}
+                {(props.tasks && props.tasks.length !== 0) ? (
+                    props.tasks.map((taskItem, index) => (
+                        <TodoTile taskName={taskItem.taskName} deadline={taskItem.deadline} getData={props.getData}></TodoTile>
+                    ))
+                ) :
+                    (
+                        <p className='noTasksTxt'>You currently have no todos. Click the add task button on the top right to add your first todo.</p>
+                    )}
             </div>
         </>
     )
