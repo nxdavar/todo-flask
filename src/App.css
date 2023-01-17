@@ -101,3 +101,20 @@
 .modal--closeIcon {
   margin-top: 2.5%;
 }
+
+.todo--input {
+  margin-bottom: 6% !important;
+  width: 100%;
+}
+
+.submitBtnCont {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 4%;
+}
+
+.submitBtn {
+  background-color: #282c34 !important;
+  color: white !important;
+}

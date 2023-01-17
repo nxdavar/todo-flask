@@ -6,9 +6,10 @@ import Backdrop from '@mui/material/Backdrop';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
-import Typography from '@mui/material/Typography';
+import TextField from '@mui/material/TextField';
 import dayjs, { Dayjs } from 'dayjs';
 import { useState } from 'react';
+import axios from 'axios';
 
 
 
@@ -21,6 +22,7 @@ import CustomDatePicker from './CustomDatePicker';
 
 interface TodosProps {
     tasks: task[] | undefined,
+    getData(): void
 }
 
 const BoxStyle = {
@@ -36,20 +38,40 @@ const BoxStyle = {
 };
 
 
-
 const Todos: React.FC<TodosProps> = (props: TodosProps) => {
 
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
-    const [dateVal, setDateVal] = useState<Dayjs | null>(
+    const [newTaskDeadline, setNewTaskDeadline] = useState<Dayjs | null>(
         dayjs('2014-08-18T21:11:54'),
     );
 
+    const [newTask, setNewTask] = useState('');
+
     const handleChange = (newValue: Dayjs | null) => {
-        setDateVal(newValue);
+        setNewTaskDeadline(newValue);
     };
+
+
+    /**
+     * Sends POST request to backend
+     * to put task in database
+     */
+    function addNewTodo() {
+        axios.post('/addTodo', {
+            taskName: newTask,
+            deadline: newTaskDeadline
+        })
+            .then(function (response) {
+                console.log(response);
+                props.getData();
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
 
     return (
         <>
@@ -75,7 +97,20 @@ const Todos: React.FC<TodosProps> = (props: TodosProps) => {
                                 <h2>Add a Todo</h2>
                                 <CloseIcon className="modal--closeIcon" onClick={handleClose}></CloseIcon>
                             </div>
-                            <CustomDatePicker dateVal={dateVal} handleChange={handleChange} />
+                            <TextField
+                                className="todo--input"
+                                required
+                                id="standard-required"
+                                label="Enter your todo's name"
+                                defaultValue=""
+                                variant="standard"
+                                value={newTask}
+                                onChange={(event) => setNewTask(event.target.value)}
+                            />
+                            <CustomDatePicker dateVal={newTaskDeadline} handleChange={handleChange} />
+                            <div className="submitBtnCont">
+                                <Button className="submitBtn" onClick={addNewTodo}>Add Todo</Button>
+                            </div>
                         </Box>
                     </Fade>
                 </Modal>

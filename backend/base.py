@@ -1,7 +1,11 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, json, request
 from flask_sqlalchemy import SQLAlchemy
+from flask_cors import CORS, cross_origin
+import dateutil.parser as dt
+
 
 api = Flask(__name__)
+cors = CORS(api, resources={r"/api/*": {"origins": "*"}})
 api.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///example.db"
 api.app_context().push()
 db = SQLAlchemy(api)
@@ -26,5 +30,16 @@ def todo_serializer(todo):
 
 
 @api.route('/todos')
-def my_profile():
+def retrieve_todos():
     return jsonify([*map(todo_serializer, Todo.query.all())])
+
+
+@api.route('/addTodo', methods=['POST'])
+def add_todo():
+    new_todo_data = json.loads(request.data)
+    new_todo = Todo(
+        taskName=new_todo_data['taskName'], deadline=dt.parse(f"{new_todo_data['deadline']}"))
+    db.session.add(new_todo)
+    db.session.commit()
+
+    return {'201': 'todo added successfully'}

@@ -35,11 +35,7 @@ function App() {
         const res = response.data
         console.log('this is the response');
         console.log(res);
-        setTasks((prev) => {
-          if (prev) {
-            return [...prev, ...res]
-          }
-        })
+        setTasks([...res])
       }).catch((error) => {
         if (error.response) {
           console.log(error.response)
@@ -48,6 +44,7 @@ function App() {
         }
       })
   }
+
 
 
   useEffect(() => {
@@ -65,7 +62,7 @@ function App() {
       <header className="App-header">
         <div className="App-header--cont">
           <h3 className="App--title">Your Todos</h3>
-          <Todos tasks={tasks} />
+          <Todos tasks={tasks} getData={getData} />
         </div>
       </header>
     </div>
