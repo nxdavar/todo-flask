@@ -48,7 +48,6 @@ def add_todo():
 @api.route('/deleteTodo', methods=['POST'])
 def delete_todo():
     del_todo_data = json.loads(request.data)
-    Todo.query.filter(Todo.taskName == del_todo_data['taskName']).filter(
-        Todo.deadline == dt.parse(f"{del_todo_data['deadline']}")).delete()
+    Todo.query.filter(Todo.taskName == del_todo_data['taskName'] and Todo.deadline == dt.parse(f"{del_todo_data['deadline']}")).delete()
     db.session.commit()
     return {'201': 'todo deleted successfully'}

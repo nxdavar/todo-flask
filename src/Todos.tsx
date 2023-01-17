@@ -115,7 +115,7 @@ const Todos: React.FC<TodosProps> = (props: TodosProps) => {
                     </Fade>
                 </Modal>
                 {props.tasks && props.tasks.map((taskItem, index) => (
-                    <TodoTile taskName={taskItem.taskName} deadline={taskItem.deadline}></TodoTile>
+                    <TodoTile taskName={taskItem.taskName} deadline={taskItem.deadline} getData={props.getData}></TodoTile>
                 ))}
             </div>
         </>
