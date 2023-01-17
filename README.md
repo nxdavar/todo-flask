@@ -28,8 +28,8 @@ In order to run and use this application you need to take the following steps (p
 1. Open another terminal window
 2. Cd into the project folder's root
 3. Cd into the backend folder
-4. Create a virtual environment by typing in "python -m <name of your virtual env>"
-5. Activate your virtual environment by typing in source "<name of your virtual env>/bin/activate" (Use ls to check if there is a folder called your virtual env's name after creating it in Step 4)
+4. Create a virtual environment by typing in "python -m (name of your virtual env)"
+5. Activate your virtual environment by typing in source "(name of your virtual env)/bin/activate" (Use ls to check if there is a folder called your virtual env's name after creating it in Step 4)
 6. Install necessary requirements by typing in pip install -r requirements.txt
 7. Start the backend server by typing in npm run start-backend (this not the application you will be interacting with, the application you will be interacting with is the frontend application located at http://localhost:3000)
 
