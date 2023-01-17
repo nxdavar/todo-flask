@@ -10,9 +10,6 @@ import './App.css';
 import { task } from "./types";
 import Todos from "./Todos";
 
-
-
-
 function App() {
 
   const [tasks, setTasks] = useState<task[] | undefined>([]);
@@ -44,7 +41,6 @@ function App() {
         }
       })
   }
-
 
 
   useEffect(() => {
