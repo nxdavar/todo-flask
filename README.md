@@ -3,13 +3,18 @@
 
 This application was built using ReactJS + TypeScript for the frontend, Flask a python based back-end library for the backend, and the SQLAlchemy to store a local version of a database to the application.
 
+
 This application will allow you to do the following: 
 1. Add tasks to your todo list 
 2. Delete tasks from your todo list upon the click of a button
 3. Reset all of your todos so you can start a fresh todo list
 
 
-In order to run and use this application you need to take the following steps: 
+In order to run and use this application you need to take the following steps (please follow the steps in order): 
+
+
+#General Seteup
+1. Clone this repository
 
 
 # Setting up the Frontend
