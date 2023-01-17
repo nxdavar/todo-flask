@@ -34,4 +34,4 @@ In order to run and use this application you need to take the following steps (p
 7. Start the backend server by typing in npm run start-backend (this not the application you will be interacting with, the application you will be interacting with is the frontend application located at http://localhost:3000)
 
 
-You might have to restart the frontend in order for the app to work as expected. Now the application should work as intended. If you are curious and want to view updates to the backend, in another window navigate to http://localhost:5000/todos
+You might have to restart the frontend in order for the app to work as expected. If you are curious and want to view updates to the backend, in another window navigate to http://localhost:5000/todos
